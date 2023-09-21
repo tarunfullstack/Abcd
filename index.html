@@ -1,0 +1,101 @@
+<html>
+    <head></head>
+    <body>
+        <h1>Student Details</h1>
+        First Name:
+        <input type="text" name="name" id="a"> <br> <br>
+        Last Name:
+        <input type="text" name="name" id="b"> <br> <br>
+        Phone Number:
+        <input type="number" name="number" id="c"> <br> <br>
+        Email:
+        <input type="email" name="email" id="d"> <br> <br>
+        Place:
+        <input type="text" name="name" id="e"> <br> <br>
+        <button onclick="abc()">Submit</button> <br>
+        <div id="da"></div>
+        <script>
+            var p = document.getElementById("a")
+            var q = document.getElementById("b")
+            var r = document.getElementById("c")
+            var s = document.getElementById("d")
+            var t = document.getElementById("e")
+            var u = document.getElementById("da")
+            var Details=[]
+            function genUI(){
+            u.innerHTML="";
+            Details.forEach(function(s,i){
+             var v = document.createElement("div")
+            v.style.backgroundColor="aqua" 
+            v.style.width = "fit-content";
+            v.style.boxsizing = "border-box";
+            v.style.border = "3px solid red"
+            v.style.borderRadius = "5px";
+            v.style.padding = "15px";
+            v.style.textAlign = "center;"
+
+            var p1 = document.createElement("p")
+            p1.innerHTML = "First Name : "
+            var span1 = document.createElement("span")
+            span1.innerHTML = s.FirstName ;
+            p1.appendChild(span1)
+            v.appendChild(p1)
+
+            var p2 = document.createElement("p")
+            p2.innerHTML = "Last Name : "
+            var span2 = document.createElement("span")
+            span2.innerHTML = s.LastName ;
+            p2.appendChild(span2)
+            v.appendChild(p2)
+
+            var p3 = document.createElement("p")
+            p3.innerHTML = "PhoneNumber : "
+            var span3 = document.createElement("span")
+            span3.innerHTML = s.PhoneNumber ;
+            p3.appendChild(span3)
+            v.appendChild(p3)
+
+            var p4 = document.createElement("p")
+            p4.innerHTML = "Email : "
+            var span4 = document.createElement("span")
+            span4.innerHTML = s.Email;
+            p4.appendChild(span4)
+            v.appendChild(p4)
+
+            var p5 = document.createElement("p")
+            p5.innerHTML = "Place : "
+            var span5 = document.createElement("span")
+            span5.innerHTML = s.Place ;
+            p5.appendChild(span5)
+            v.appendChild(p5)
+            u.appendChild(v)
+            
+            var btn = document.createElement("button")
+            btn.innerHTML="remove"
+            btn.onclick = function(){
+                removefn(i)
+            }
+            v.appendChild(btn)
+            u.appendChild(v)
+        })
+        }  
+            function abc(){
+                var newObj = {
+                    "FirstName": p.value,
+                    "LastName" : q.value,
+                    "PhoneNumber": r.value,
+                    "Email" : s.value,
+                    "Place" : t.value          
+                }
+                Details.push(newObj);
+                genUI(Details)
+            } 
+                function removefn(i){
+                    Details.splice(i,1)
+                    genUI()
+                }
+            
+
+        </script>
+    </body>
+</html>
